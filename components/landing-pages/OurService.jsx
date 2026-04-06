@@ -1,12 +1,10 @@
+"use client";
 import SectionHeading from "@/components/common/SectionHeading";
-import Image from "next/image";
 import ServiceCard from "../common/ServiceCard";
 import { servicesData } from "@/app/(root)/(website)/data/servicedata";
 import { ArrowUpRight } from "lucide-react";
 
 export default function OurService() {
-
-
     return (
         <section className="py-20 bg-[#000000] text-center">
             {/* Heading Wrapper */}

@@ -1,3 +1,4 @@
+"use client";
 import SectionHeading from "@/components/common/SectionHeading";
 import Image from "next/image";
 
@@ -19,13 +20,11 @@ export default function OurWork() {
         <section className="py-20 bg-[#ffffff] text-center">
             {/* Heading Wrapper */}
             <div className="relative flex flex-col items-center justify-center">
-
                 <SectionHeading
                     title="OUR WORK"
                     subtitle="who we work with"
                     align="center"
                 />
-
             </div>
 
             {/* Logos */}
