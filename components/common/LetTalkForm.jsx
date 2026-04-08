@@ -1,96 +1,98 @@
 "use client";
 import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
+import SectionHeading from "./SectionHeading";
 
 export default function LetTalkForm() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    project: ""
+    project: "",
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
-    // Handle form submission here
   };
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-[#0b0b1f] via-[#1a1a3a] to-[#0f0f2a] py-16 px-6">
-      <div className="container mx-auto">
-        <div className="flex flex-col lg:flex-row gap-12 items-center justify-between">
-          {/* Left Side - Title */}
+    <section className=" max-w-7xl mx-auto py-20 px-4">
+      <div className="w-full mx-auto bg-black rounded-3xl px-10 py-16">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
+          {/* LEFT SIDE */}
           <div className="lg:w-1/2">
-            <h2 className="text-5xl lg:text-7xl font-bold font-balgin leading-tight">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4F46E5] to-[#6C63FF]">
-                LETS TALK!
-              </span>
-              <br />
-              <span className="text-white text-4xl lg:text-6xl">
-                About you.
-              </span>
-            </h2>
+            <SectionHeading
+              title="LETS TALK!"
+              subtitle="About you."
+              dark
+              textSize="48px"
+            />
           </div>
 
-          {/* Right Side - Form */}
+          {/* RIGHT SIDE */}
           <div className="lg:w-1/2 w-full max-w-md">
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Name Input */}
-              <div className="relative">
+              {/* NAME */}
+              <div>
+                <label className="text-gray-300 text-sm mb-2 block">
+                  Your Name
+                </label>
                 <input
                   type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  placeholder="Your Name"
-                  required
-                  className="w-full px-6 py-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-400/20 transition-all duration-300"
+                  className="w-full px-5 py-3 rounded-xl bg-[#FFFFFF] text-black outline-none"
                 />
               </div>
 
-              {/* Email Input */}
-              <div className="relative">
+              {/* EMAIL */}
+              <div>
+                <label className="text-gray-300 text-sm mb-2 block">
+                  Your Email
+                </label>
                 <input
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="Your Email"
-                  required
-                  className="w-full px-6 py-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-400/20 transition-all duration-300"
+                  className="w-full px-5 py-3 rounded-xl bg-[#FFFFFF] text-black outline-none"
                 />
               </div>
 
-              {/* Project Textarea */}
-              <div className="relative">
+              {/* PROJECT */}
+              <div>
+                <label className="text-gray-300 text-sm mb-2 block">
+                  About your Project
+                </label>
                 <textarea
                   name="project"
                   value={formData.project}
                   onChange={handleChange}
-                  placeholder="About your Project"
                   rows={4}
-                  required
-                  className="w-full px-6 py-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-400/20 transition-all duration-300 resize-none"
+                  className="w-full px-5 py-3 rounded-xl bg-[#FFFFFF] text-black outline-none resize-none"
                 />
               </div>
 
-              {/* Submit Button */}
-              <button
-                type="submit"
-                className="group flex items-center justify-center gap-3 w-full px-8 py-4 bg-gradient-to-r from-[#4F46E5] to-[#6C63FF] text-white font-semibold rounded-2xl hover:shadow-lg hover:shadow-purple-500/25 transform hover:scale-[1.02] transition-all duration-300"
-              >
-                Send
-                <span className="w-10 h-10 flex items-center justify-center rounded-full bg-white/20 group-hover:bg-white/30 transition-colors duration-300">
-                  <ArrowUpRight className="text-white w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
-                </span>
-              </button>
+              {/* BUTTON */}
+              <div className="flex items-center gap-4 pt-2">
+                <button
+                  type="submit"
+                  className="text-[#5545FF] font-medium text-lg flex items-center gap-2"
+                >
+                  Send
+                  <div className="w-10 h-10 flex items-center justify-center bg-white rounded-full">
+                    <ArrowUpRight className="text-black w-5 h-5" />
+                  </div>
+                </button>
+              </div>
             </form>
           </div>
         </div>

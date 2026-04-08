@@ -6,6 +6,7 @@ export default function SectionHeading({
   subtitle,
   align = "left",
   dark = false,
+  textSize = "80px"
 }) {
   return (
     <div
@@ -23,7 +24,7 @@ export default function SectionHeading({
           uppercase
           tracking-widest
           leading-none
-          text-[80px] sm:text-[120px] md:text-[160px]
+          text-[${textSize}] sm:text-[120px] md:text-[160px]
           opacity-40
           ${dark ? "text-transparent" : "text-transparent"}
         `}

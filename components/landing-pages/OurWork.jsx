@@ -24,6 +24,7 @@ export default function OurWork() {
                     title="OUR WORK"
                     subtitle="who we work with"
                     align="center"
+                    textSize="80px"
                 />
             </div>
 

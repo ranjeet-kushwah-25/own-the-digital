@@ -6,7 +6,7 @@ import { ArrowUpRight } from "lucide-react";
 
 export default function OurService() {
     return (
-        <section className="py-20 bg-[#000000] text-center">
+        <section className="py-20 rounded-4xl bg-[#000000] text-center">
             {/* Heading Wrapper */}
             <div className="relative flex flex-col items-center justify-center">
 
@@ -15,6 +15,7 @@ export default function OurService() {
                     subtitle="what we do"
                     dark
                     align="center"
+                    textSize="80px"
                 />
 
             </div>

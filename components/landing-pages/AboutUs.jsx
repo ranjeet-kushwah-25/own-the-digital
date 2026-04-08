@@ -2,7 +2,7 @@
 import SectionHeading from "../common/SectionHeading";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
-// import LetTalkForm from "../common/LetTalkForm";
+import LetTalkForm from "../common/LetTalkForm";
 
 
 export default function AboutUs() {
@@ -11,7 +11,7 @@ export default function AboutUs() {
             <div className="container mx-auto">
                 {/* Header with Know More */}
                 <div className="flex justify-between items-center mb-16">
-                    <SectionHeading title="ABOUT US" subtitle="who we are" align="left" />
+                    <SectionHeading title="ABOUT US" subtitle="who we are" align="left" textSize="80px" />
 
                     <div className="flex items-center gap-1 text-[#5545FF] font-semibold text-lg group">
                         <span className="text-nowrap">Know More</span>
@@ -103,7 +103,10 @@ export default function AboutUs() {
                     <h2 className='text-white text-3xl font-bold text-center p-4' >Win the game of Online Marketing and digital presence with us.</h2>
                 </marquee>
             </div>
-{/* <LetTalkForm /> */}
+
+            <div className="mt-10">
+                <LetTalkForm />
+            </div>
         </section>
     );
 }
