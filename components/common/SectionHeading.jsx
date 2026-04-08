@@ -19,7 +19,7 @@ export default function SectionHeading({
         className={`
           pointer-events-none
           select-none
-          font-bungee
+          font-bungee-outline-regular 
           font-extrabold
           uppercase
           tracking-widest

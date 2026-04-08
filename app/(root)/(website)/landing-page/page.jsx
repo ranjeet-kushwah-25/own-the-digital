@@ -29,6 +29,6 @@ export default function LandingPage() {
       <OurService />
       <AboutUs />
       <Footer />
-      </>
+    </>
   );
 } 

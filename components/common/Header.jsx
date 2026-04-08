@@ -19,7 +19,7 @@ export default function Header() {
                         (item) => (
                             <Link
                                 key={item}
-                                href="#"
+                                href={`/${item.toLowerCase().replace(" ", "-")}`}
                                 className="relative hover:text-white transition duration-300
                 after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px]
                 after:bg-blue-400 hover:after:w-full after:transition-all"
