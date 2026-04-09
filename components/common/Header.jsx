@@ -10,7 +10,9 @@ export default function Header() {
                 className="w-full mx-4 max-w-[996px] h-14 px-8 py-3 flex items-center justify-between rounded-2xl bg-linear-to-r from-[#0008F0E5]/30 via-[#0008F000]/50 to-[#111115]  backdrop-blur-sm shadow-lg" >
 
                 {/* Logo */}
+                <Link href='/'>
                 <CustomIcon src="logo_ownthedigital.png" size={200} />
+                </Link>
 
                 {/* Navigation */}
                 {/* Navigation */}

@@ -4,33 +4,43 @@ import { ArrowUpRight } from "lucide-react";
 export default function ServiceCard({ icon, title, points, onClick }) {
   return (
     <div
-      className="relative max-w-5xl h-[460px] mx-auto rounded-[20px_20px_20px_0px] p-8 flex gap-7 items-center bg-[url('/images/Subtract_card.png')] bg-cover bg-center"
+      className="relative max-w-[996.2530517578125px] mx-auto h-[460px] rounded-[28px_28px_28px_0px] 
+      p-10 flex flex-col 
+      bg-[url('/images/Subtract_card.png')] bg-cover bg-center "
     >
-      {/* Icon */}
-      <div className="w-24 shrink-0 flex items-center justify-center">
-        {icon}
-      </div>
-
-      {/* Content */}
-      <div className="flex-1">
-          <h3 className="text-[28px] leading-[100%] tracking-normal  text-center font-balgin text-white weight-[]">
+      {/* Title - Centered at top */}
+      <div className="text-center mb-8">
+        <h3 className="text-[28px] font-black  font-balgin text-transparent text-white">
           {title}
         </h3>
-        <ul className="space-y-1">
-          {points.map((point, i) => (
-            <li key={i} className="text-white text-[13.5px] opacity-90">
-              {point}
-            </li>
-          ))}
-        </ul>
+      </div>
+
+      {/* Main content - Icon and list side by side */}
+      <div className=" flex items-center justify-around ">
+        {/* Icon - Left side */}
+        <div className="relative z-10 flex items-center justify-center shrink-0">
+          {icon}
+        </div>
+
+        {/* Content - Right side */}
+        <div className=" z-10 text-white">
+          <ul className="space-y-2 text-[24px] font-medium font-Gilroy-Medium opacity-90">
+            {points.map((point, i) => (
+              <li key={i}>{point}</li>
+            ))}
+          </ul>
+        </div>
       </div>
 
       {/* Arrow button */}
       <button
         onClick={onClick}
-        className="absolute -bottom-4 right-6 w-11 h-11 rounded-full bg-[#3333cc] flex items-center justify-center border-[3px] border-black hover:bg-[#4444ee] transition"
+        className="absolute bottom-5 right-6 w-15 h-15 rounded-full 
+        bg-[#2f2fcf] flex items-center justify-center 
+        border-[4px] border-black 
+        hover:bg-[#4a4aff] transition z-10"
       >
-        <ArrowUpRight className="text-white w-4 h-4" />
+        <ArrowUpRight className="text-white w-8 h-9" />
       </button>
     </div>
   );

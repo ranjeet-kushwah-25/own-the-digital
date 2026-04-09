@@ -14,7 +14,7 @@ const SERVICES = [
       "We Build Backlinks",
       "We Optimize Technical SEO",
     ],
-    icon: <CustomIcon src="/seo_white.png" size={80}/>,
+    icon: <CustomIcon src="/seo_white.png" size={150}/>,
   },
 ];
 
@@ -25,7 +25,7 @@ export default function OurServciepage() {
       <SectionHeading title="Our Services" subtitle="what we do" dark align="center" />
 
       {/* Cards */}
-      <div className="gap-12">
+      <div className="gap-12 mt-3">
         {SERVICES.map((service, i) => (
           <ServiceCard
             key={i}

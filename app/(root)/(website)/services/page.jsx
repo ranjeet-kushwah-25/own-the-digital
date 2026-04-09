@@ -1,6 +1,10 @@
 'use client'
+import Footer from "@/components/common/Footer";
 import Header from "@/components/common/Header";
-// import OurServciepage from "@/components/services-pages/OurServciepage";
+import LetTalkForm from "@/components/common/LetTalkForm";
+import OurServciepage from "@/components/services-pages/OurServciepage";
+import OurWorkService from "@/components/services-pages/OurWorkService";
+import Testimonials from "@/components/services-pages/Testimonials";
 import React from "react";
 
 export default function ServicePage() {
@@ -14,7 +18,14 @@ export default function ServicePage() {
           </h1>
         </div>
       </div>
-      {/* <OurServciepage /> */}
+      <OurServciepage />
+      <OurWorkService/>
+      <Testimonials/>
+
+      <div className="bg-white">
+        <LetTalkForm/>
+      </div>
+      <Footer />
     </>
   );
 } 
