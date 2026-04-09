@@ -37,6 +37,15 @@ body {
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Bungee Outline";
+  src:
+    url("/fonts/BungeeOutline-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 .bungee-outline-regular {
   font-family: "Bungee Outline", sans-serif;
   font-weight: 400;
