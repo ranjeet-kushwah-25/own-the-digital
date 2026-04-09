@@ -11,7 +11,7 @@ import { ArrowUpRight } from "lucide-react";
 export default function ContactSection() {
   return (
     <>
-    <section className="bg-black rounded-[28px] p-8 md:p-16 text-white">
+    <section className="bg-black rounded-[28px]  text-white">
       <Header />
       {/* Heading */}
       <SectionHeading
@@ -24,7 +24,7 @@ export default function ContactSection() {
       {/* Layout */}
       <div className="grid md:grid-cols-2 gap-12 items-start">
         {/* Left Form */}
-        <div className="space-y-6">
+        <div className="p-8 md:p-16">
           <FormField
             index={1}
             label="What's your name/company name?"
