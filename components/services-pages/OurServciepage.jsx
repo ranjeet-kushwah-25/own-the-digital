@@ -14,7 +14,7 @@ const SERVICES = [
       "We Build Backlinks",
       "We Optimize Technical SEO",
     ],
-    icon: <CustomIcon src="/seo_white.png" size={150}/>,
+    icon: <CustomIcon src="/seo_white.png" size={100}/>,
   },
 ];
 

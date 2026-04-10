@@ -12,7 +12,11 @@ export default function ContactSection() {
   return (
     <>
     <section className="bg-black rounded-[28px]  text-white">
+      <div className="mb-10">
       <Header />
+      </div>
+
+      <div className="mt-2">
       {/* Heading */}
       <SectionHeading
         title="CONTACT US"
@@ -20,6 +24,7 @@ export default function ContactSection() {
         dark={true}
         align="center"
       />
+      </div>
 
       {/* Layout */}
       <div className="grid md:grid-cols-2 gap-12 items-start">
