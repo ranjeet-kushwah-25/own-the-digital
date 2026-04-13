@@ -24,7 +24,7 @@ export default function ExpertiseItem({ number, title, description, image, rever
           {number}
         </p>
         <p
-            className="text-[16px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-extrabold italic mb-2"
+            className="text-[16px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-extrabold font-balgin mb-2"
           style={{
             background: "linear-gradient(90deg, #3333cc, #6655ff)",
             WebkitBackgroundClip: "text",

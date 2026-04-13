@@ -100,7 +100,7 @@ export default function AboutUs() {
             </div>
             <div className='bg-[#5545FF] w-full mt-10 '>
                 <marquee behavior="scroll" scrollamount="15" loop="infinite">
-                    <h2 className='text-white text-3xl font-bold text-center p-4' >Win the game of Online Marketing and digital presence with us.</h2>
+                    <h2 className='text-white text-3xl font-bold  font-balgin text-center p-4' >Win the game of Online Marketing and digital presence with us.</h2>
                 </marquee>
             </div>
 

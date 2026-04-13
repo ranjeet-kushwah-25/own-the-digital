@@ -30,17 +30,16 @@ body {
 @font-face {
   font-family: "Balgin";
   src:
-    url("/fonts/Fontspring-DEMO-balgindisplay-black.otf") format("opentype"),
-    url("/fonts/Fontspring-DEMO-balgindisplay-extralight.otf") format("truetype");
-  font-weight: 400;
-  font-style: italic;
+    url("/Demo_Fonts/Fontspring-DEMO-balgin-black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
   font-display: swap;
 }
 
 @font-face {
   font-family: "Bungee Outline";
   src:
-    url("/fonts/BungeeOutline-Regular.otf") format("opentype");
+    url("/BungeeOutline-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -49,6 +48,12 @@ body {
 .bungee-outline-regular {
   font-family: "Bungee Outline", sans-serif;
   font-weight: 400;
+  font-style: normal;
+}
+
+.balgin-black {
+  font-family: "Balgin", sans-serif;
+  font-weight: 900;
   font-style: normal;
 }
 
