@@ -12,6 +12,7 @@
   --font-mono: var(--font-geist-mono);
   --font-balgin: "Balgin";
   --font-bungee: "Bungee Outline";
+  --font-chiefland-demo: "Chiefland Demo";
 }
 
 @media (prefers-color-scheme: dark) {
@@ -54,6 +55,21 @@ body {
 .font-bungee-outline {
   font-family: "Bungee Outline", sans-serif;
   font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Chiefland Demo";
+  src:
+    url("/ChieflanddemoBold-MVlnB.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-chiefland-demo {
+  font-family: "Chiefland Demo", sans-serif;
+  font-weight: 700;
   font-style: normal;
 }
 

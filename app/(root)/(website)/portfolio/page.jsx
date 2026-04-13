@@ -6,6 +6,7 @@ import SectionHeading from "@/components/common/SectionHeading";
 import { CustomIcon } from "@/components/ui/Icon/CustomIcon";
 import { ArrowUpRight } from "lucide-react";
 import ShowcaseCard from "@/components/portfolio-pages/page";
+import Link from "next/link";
 
 export default function PortFolio() {
     const portfolioItems = [
@@ -74,12 +75,13 @@ export default function PortFolio() {
                 />
 
                 <div className="space-y-20 p-4 sm:p-6 md:p-8 lg:p-10 max-w-7xl mx-auto min-h-screen">
-
+                    <Link href="/case-study">
                     <ShowcaseCard
                         image="/images/41eebf360956c7c3106adeb29413a8afdb14c243.png"
                         title="Urban Outfitters"
                         description="Urban Outfitters launched online retailer specializing in western clothing for both men and women. Their product range includes everything from vintage-inspired apparel, bags, shoes, and accessories to beauty products."
                     />
+                    </Link>
 
                     <ShowcaseCard
                         image="/images/dee6f0fd618c914245d9e4851996b29f67314de3.png"

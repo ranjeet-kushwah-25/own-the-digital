@@ -15,7 +15,7 @@ export default function ExpertiseItem({ number, title, description, image, rever
       <div className="flex-1 text-center md:text-left">
         <div className="flex justify-center md:justify-start items-end gap-2">
         <p
-            className="text-[60px] sm:text-[80px] md:text-[100px] lg:text-[120px] font-black leading-none mb-1"
+            className="text-[60px] sm:text-[80px] md:text-[100px] lg:text-[120px] font-normal font-bungee leading-none mb-1"
           style={{
             color: "transparent",
             WebkitTextStroke: "1.5px #bbb",
