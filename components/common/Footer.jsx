@@ -87,7 +87,7 @@ export default function Footer() {
       {/* BOTTOM BAR */}
           <div className="bg-[#FFFFFF] text-black text-sm py-4 px-4 sm:px-6">
               <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-                  <p className="text-center sm:text-left"> © Copyright 2023, All Rights Reserved</p>
+                  <p className="text-center sm:text-left"> © Copyright 2026, All Rights Reserved</p>
 
                   <div className="flex gap-4 sm:gap-6">
                       <span className="cursor-pointer hover:text-gray-600 transition-colors">Terms & Conditions</span>

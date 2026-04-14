@@ -13,7 +13,7 @@ export default function Header() {
 
                 {/* Logo */}
                 <Link href='/'>
-                    <CustomIcon src="logo_ownthedigital.png" size={120} className="sm:size-150 md:size-180 lg:size-200" />
+                    <CustomIcon src="logo_ownthedigital.png" size={192} className="sm:size-150 md:size-180 lg:size-200" />
                 </Link>
 
                 {/* Desktop Navigation */}
