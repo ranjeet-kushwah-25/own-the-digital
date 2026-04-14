@@ -108,11 +108,11 @@ export default function LandingPage({
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Image
-            src="/images/MacBook-Pro-16-inch-Space-Black-Front.png"  //check image is not applying
+            src="/images/MacBook-Pro-16-inch-Space-Black-Front.png"
             alt={resultMacImages?.alt || "MacBook-Pro-16-inch-Space-Black-Front"}
             width={1024}
             height={623.5}
-            className="object-contain opacity-50"
+            className="object-contain opacity-150"
           />
         </div>
       </section>
