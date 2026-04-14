@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 const categories = ["All", "Digital Marketing", "SEO", "Social Media Marketing"];
 
@@ -66,6 +67,16 @@ const blogs = [
     image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=400&h=220&fit=crop",
   },
 ];
+
+// Function to generate URL-friendly slugs
+const generateSlug = (title) => {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, '') // Remove special characters
+    .replace(/\s+/g, '-') // Replace spaces with hyphens
+    .replace(/-+/g, '-') // Replace multiple hyphens with single hyphen
+    .trim(); // Remove leading/trailing hyphens
+};
 
 const ITEMS_PER_PAGE = 3;
 
@@ -144,9 +155,11 @@ export default function BlogList() {
               <p className="text-xs text-gray-400 mb-1">{blog.date}</p>
 
               {/* Title */}
-              <h2 className="text-lg font-bold text-indigo-600 leading-snug mb-2 hover:underline cursor-pointer">
-                {blog.title}
-              </h2>
+              <Link href={`/blogs/${generateSlug(blog.title)}`}>
+                <h2 className="text-lg font-bold text-indigo-600 leading-snug mb-2 hover:underline cursor-pointer">
+                  {blog.title}
+                </h2>
+              </Link>
 
               {/* Description */}
               <p className="text-sm text-gray-600 leading-relaxed line-clamp-3">

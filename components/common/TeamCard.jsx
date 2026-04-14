@@ -15,7 +15,7 @@ export default function TeamCard({ image, name, role }) {
                       <Image src={image} alt={name} fill className="object-cover" />
 
                       {/* CURVED CUT (bottom-right notch) */}
-                      <div className="absolute bottom-0 right-0 w-[70px] h-[70px] bg-white rounded-tl-[40px]"></div>
+                      <div className="absolute bottom-0 right-0 w-[70px]  border border-[#5A4BFF] h-[70px] bg-white rounded-tl-[40px]"></div>
 
                       {/* ARROW BUTTON */}
                       <div className="absolute bottom-3 right-3 w-10 h-10 rounded-full bg-gradient-to-br from-[#5A4BFF] to-black flex items-center justify-center shadow-lg z-10">
