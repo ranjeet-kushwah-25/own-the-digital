@@ -2,6 +2,7 @@
 import React from "react";
 import SectionHeading from "./SectionHeading";
 import Image from "next/image";
+import { CustomIcon } from "../ui/Icon/CustomIcon";
 
 export default function HeroSection({
   title = "Unlock your skin's full potential with Lumina",
@@ -40,6 +41,7 @@ export default function HeroSection({
           </p>
         
         </div>
+        <div className="flex justify-between gap-3 items-end">
         <Image 
         src='/images/29.07.2024_18.16.41_REC.png'
         alt='Urban outlier'
@@ -47,6 +49,8 @@ export default function HeroSection({
         height={580}
         className="mt-[200px]"
         />
+        <CustomIcon src='/mailSYmbol.png' size={60}/>
+        </div>
       </div>
 
     </section>
