@@ -77,5 +77,5 @@ body {
 }
 
 .animate__animated.animate-spin {
-  --animate-duration: 2s;
+  --animate-duration: 10s;
 }
