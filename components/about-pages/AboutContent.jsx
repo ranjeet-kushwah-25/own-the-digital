@@ -38,14 +38,15 @@ export default function AboutContent() {
         {items.map((item, i) => (
           <div
             key={i}
-            className={`max-w-[800px] text-left ${
+            className={`max-w-[800px] text-left transform transition-all duration-500 hover:scale-105 hover:-translate-y-2 animate__animated animate__fadeInUp ${
               item.align === "right" ? "ml-auto" : "mr-auto"
             }`}
+            style={{ animationDelay: `${i * 200}ms` }}
           >
-            <h2 className="text-[64px] leading-[136%] tracking-normal font-medium font-balgin text-transparent bg-clip-text bg-linear-to-r from-[#1500FF] via-[#C7C2FF] to-[#1500FF]">
+            <h2 className="text-[64px] leading-[136%] tracking-normal font-medium balgin-black text-transparent bg-clip-text bg-linear-to-r from-[#1500FF] via-[#C7C2FF] to-[#1500FF] transition-all duration-300 hover:from-[#2D1BFF] hover:via-[#E0D8FF] hover:to-[#2D1BFF]">
               {item.title}
             </h2>
-            <p className="text-[#FFFFFF] font-Gilroy-Regular text-[24px] leading-relaxed">{item.desc}</p>
+            <p className="text-[#FFFFFF] font-Gilroy-Regular text-[24px] leading-relaxed transition-all duration-300 hover:text-gray-200">{item.desc}</p>
           </div>
         ))}
       </div>
