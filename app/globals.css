@@ -30,8 +30,7 @@ body {
 
 @font-face {
   font-family: "Balgin";
-  src:
-    url("/Demo_Fonts/Fontspring-DEMO-balgin-black.otf") format("opentype");
+  src: url("/Demo_Fonts/Fontspring-DEMO-balgin-black.otf") format("opentype");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -39,8 +38,7 @@ body {
 
 @font-face {
   font-family: "Bungee Outline";
-  src:
-    url("/BungeeOutline-Regular.ttf") format("truetype");
+  src: url("/BungeeOutline-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -60,8 +58,7 @@ body {
 
 @font-face {
   font-family: "Chiefland Demo";
-  src:
-    url("/ChieflanddemoBold-MVlnB.ttf") format("truetype");
+  src: url("/ChieflanddemoBold-MVlnB.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -79,3 +76,6 @@ body {
   font-style: normal;
 }
 
+.animate__animated.animate-spin {
+  --animate-duration: 2s;
+}

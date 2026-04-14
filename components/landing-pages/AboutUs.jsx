@@ -4,8 +4,66 @@ import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import LetTalkForm from "../common/LetTalkForm";
 
+// Reusable About Card Component
+function AboutCard({ children }) {
+    return (
+        <div className="w-full max-w-[900px] mx-auto p-px rounded-[28px] bg-linear-to-r from-[#6C63FF] to-[#7F7CFF] transform transition-all duration-300 hover:scale-105 hover:-translate-y-1 group">
+            <div className="rounded-[27px] px-8 py-10 bg-linear-to-br from-[#d9d9e6] via-[#e6e6f2] to-[#f2f2f8] transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-purple-500/25">
+                <p className="text-[22px] leading-[36px] text-[#0b0b1f] font-medium transition-all duration-300 group-hover:text-[#1a1a2e]">
+                    {children}
+                </p>
+            </div>
+        </div>
+    );
+}
 
 export default function AboutUs() {
+    const aboutContent = [
+        {
+            id: 1,
+            content: (
+                <>
+                    At{" "}
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4F46E5] to-[#6C63FF] font-semibold">
+                        Own the Digital,
+                    </span>{" "}
+                    <br />
+                    we are passionate about transforming businesses through
+                    <br />
+                    innovative digital marketing solutions.
+                </>
+            )
+        },
+        {
+            id: 2,
+            content: (
+                <>
+                    With a team of experienced professionals, we specialize in
+                    SEO, social media management, content creation, and
+                    data-driven strategies that elevate your brand's online
+                    presence.
+                </>
+            )
+        },
+        {
+            id: 3,
+            content: (
+                <>
+                    We believe in building lasting partnerships with our clients,
+                    fostering growth and success in the ever-evolving digital
+                    landscape.
+                    <span className="text-transparent bg-clip-text bg-linear-to-r from-[#4F46E5] to-[#6C63FF] font-medium underline">
+                        We use metric and data to create strategies.
+                    </span>{" "}  <br />
+                    <span className="text-transparent bg-clip-text bg-linear-to-r from-[#4F46E5] to-[#6C63FF] font-semibold">
+                        Join us on the journey to take your business to the next
+                        level.
+                    </span>{" "}
+                </>
+            )
+        }
+    ];
+
     return (
         <section className="min-h-screen bg-white py-16 px-6">
             <div className="container mx-auto">
@@ -38,63 +96,11 @@ export default function AboutUs() {
 
                     {/* Right Column - Text Blocks */}
                     <div className="lg:w-1/2 space-y-6">
-                        {/* Block 1 */}
-                        <div className="w-full max-w-[900px] mx-auto p-[1px] rounded-[28px] bg-gradient-to-r from-[#6C63FF] to-[#7F7CFF]">
-                            {/* Inner Card */}
-                            <div
-                                className="rounded-[27px] px-8 py-10 
-      bg-gradient-to-br from-[#d9d9e6] via-[#e6e6f2] to-[#f2f2f8]"
-                            >
-                                <p className="text-[22px] leading-[36px] text-[#0b0b1f] font-medium">
-                                    At{" "}
-                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4F46E5] to-[#6C63FF] font-semibold">
-                                        Own the Digital,
-                                    </span>{" "}
-                                    <br />
-                                    we are passionate about transforming businesses through
-                                    <br />
-                                    innovative digital marketing solutions.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Block 2 */}
-                        <div className="w-full max-w-[900px] mx-auto p-[1px] rounded-[28px] bg-gradient-to-r from-[#6C63FF] to-[#7F7CFF]">
-                            {/* Inner Card */}
-                            <div
-                                className="rounded-[27px] px-8 py-10 
-      bg-gradient-to-br from-[#d9d9e6] via-[#e6e6f2] to-[#f2f2f8]"
-                            >
-                                <p className="text-[22px] leading-[36px] text-[#0b0b1f] font-medium">
-                                    With a team of experienced professionals, we specialize in
-                                    SEO, social media management, content creation, and
-                                    data-driven strategies that elevate your brand's online
-                                    presence.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Block 3 */}
-                        <div className="w-full max-w-[900px] mx-auto p-[1px] rounded-[28px] bg-gradient-to-r from-[#6C63FF] to-[#7F7CFF]">
-                            {/* Inner Card */}
-                            <div
-                                className="rounded-[27px] px-8 py-10 
-      bg-gradient-to-br from-[#d9d9e6] via-[#e6e6f2] to-[#f2f2f8]"
-                            >
-                                <p className="text-[22px] leading-[36px] text-[#0b0b1f] font-medium">
-                                    We believe in building lasting partnerships with our clients,
-                                    fostering growth and success in the ever-evolving digital
-                                    landscape.
-                                    <span className="text-transparent bg-clip-text bg-linear-to-r from-[#4F46E5] to-[#6C63FF] font-medium underline">
-                                        We use metric and data to create strategies.
-                                    </span>{" "}  <br />
-                                    <span className="text-transparent bg-clip-text bg-linear-to-r from-[#4F46E5] to-[#6C63FF] font-semibold">
-                                        Join us on the journey to take your business to the next
-                                        level.
-                                    </span>{" "}
-                                </p>
-                            </div>
-                        </div>
+                        {aboutContent.map((item) => (
+                            <AboutCard key={item.id}>
+                                {item.content}
+                            </AboutCard>
+                        ))}
                     </div>
                 </div>
             </div>

@@ -17,6 +17,8 @@ export default function SectionHeading({
       {/* Outline Big Text */}
       <h2
         className={`
+          animate__animated
+         animate__wobble
           pointer-events-none
           select-none
           font-bungee-outline     
@@ -38,6 +40,8 @@ export default function SectionHeading({
       {/* Subtitle */}
       <p
         className={`
+              animate__animated
+         animate__wobble
           absolute
           top-19/25
           left-0

@@ -12,7 +12,7 @@ export default function FormField({
       
       {/* Label Row */}
       <div className="flex items-end justify-start gap-4 mb-2">
-        <span className="text-[120px] font-black leading-none mb-1"
+        <span className="text-[48px] font-normal font-bungee leading-none mb-1"
           style={{
             color: "transparent",
             WebkitTextStroke: "1.5px #bbb",

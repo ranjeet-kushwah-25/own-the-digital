@@ -31,33 +31,33 @@ export default function ContactSection() {
         {/* Left Form */}
         <div className="p-8 md:p-16">
           <FormField
-            index={1}
+            index="01"
             label="What's your name/company name?"
             placeholder="type your name/company name..."
           />
 
           <FormField
-            index="2"
+            index="02"
             label="What's your email address?"
             placeholder="example@email.com"
             type="email"
           />
 
           <FormField
-            index={3}
+            index="03"
             label="What's your phone number?"
             placeholder="+91 00000 00000"
           />
 
           <FormField
-            index={4}
+            index="04"
             label="What services are you looking for?"
             type="select"
             options={["Web Development", "SEO", "UI/UX Design"]}
           />
 
           <FormField
-            index={5}
+            index="05"
             label="Tell us about your project"
             type="textarea"
             placeholder="type your project description"
@@ -68,16 +68,15 @@ export default function ContactSection() {
             {" "}
             <span className="text-[#5545FF] font-semibold text-[24px]">Send</span>
             <button
-              className=" bottom-6 right-5 w-20 h-20 rounded-full 
-           flex items-center justify-center shadow-lg bg-linear-to-r from-[#5545FF] via-[#2D2486] to-[#000000] hover:from-[#382c9e] hover:via-[#6052fa] hover:to-[#000000a5] transition"
+                className="w-20 h-20 rounded-full flex items-center justify-center shadow-lg bg-linear-to-r from-[#5545FF] via-[#2D2486] to-[#000000] hover:from-[#382c9e] hover:via-[#6052fa] hover:to-[#000000a5] transition-all duration-300 transform hover:scale-110 hover:shadow-xl hover:shadow-purple-500/50 group"
             >
-              <ArrowUpRight className="text-white w-10 h-10" />
+                <ArrowUpRight className="text-white w-10 h-10 transition-transform duration-300 group-hover:rotate-45 group-hover:scale-125" />
             </button>
           </div>
         </div>
 
         {/* Right Side CTA */}
-        <div className="flex items-start justify-center">
+          <div className="flex items-start justify-center">
           <CustomIcon src="/getInTouch.png" size={285} />
         </div>
       </div>

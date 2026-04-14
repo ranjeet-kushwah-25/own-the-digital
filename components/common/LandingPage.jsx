@@ -72,34 +72,44 @@ export default function LandingPage({
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <HeadingText title="Results achieved" subtitle="Our comprehensive approach led to significant improvements in the client’s online performance:" />
-          <div className="grid grid-cols-3 gap-10 max-w-5xl mx-auto mb-5">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto mb-5">
             {resultsData.slice(0, 3).map((result, index) => (
-              <StatsCard
+              <div 
                 key={index}
-                percentage={result.percentage}
-                title={result.title}
-                description={result.description}
-                highlightWord={result.highlightWord}
-                trend={result.trend}
-                icon={result.icon}
-                dark={false}
-                color="blue"
-              />
+                className="transform transition-all duration-500 hover:scale-105 hover:-translate-y-2 animate__animated animate__fadeInUp"
+                style={{ animationDelay: `${index * 200}ms` }}
+              >
+                <StatsCard
+                  percentage={result.percentage}
+                  title={result.title}
+                  description={result.description}
+                  highlightWord={result.highlightWord}
+                  trend={result.trend}
+                  icon={result.icon}
+                  dark={false}
+                  color="blue"
+                />
+              </div>
             ))}
           </div>
-          <div className="grid grid-cols-2 gap-5 max-w-2xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-2xl mx-auto">
             {resultsData.slice(3).map((result, index) => (
-              <StatsCard
-                key={index}
-                percentage={result.percentage}
-                title={result.title}
-                description={result.description}
-                highlightWord={result.highlightWord}
-                trend={result.trend}
-                icon={result.icon}
-                dark={false}
-                color="blue"
-              />
+              <div
+                key={index + 3}
+                className="transform transition-all duration-500 hover:scale-105 hover:-translate-y-2 animate__animated animate__fadeInUp"
+                style={{ animationDelay: `${(index + 3) * 200}ms` }}
+              >
+                <StatsCard
+                  percentage={result.percentage}
+                  title={result.title}
+                  description={result.description}
+                  highlightWord={result.highlightWord}
+                  trend={result.trend}
+                  icon={result.icon}
+                  dark={false}
+                  color="blue"
+                />
+              </div>
             ))}
           </div>
         </div>
@@ -122,34 +132,44 @@ export default function LandingPage({
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <HeadingText title="Statistics" subtitle="Our comprehensive approach led to significant improvements in the client’s online performance:" />
-          <div className="grid grid-cols-3 gap-10 max-w-5xl mx-auto mb-5">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto mb-5">
             {statisticsData.slice(0, 3).map((result, index) => (
-              <StatsCard
+              <div 
                 key={index}
-                percentage={result.percentage}
-                title={result.title}
-                description={result.description}
-                highlightWord={result.highlightWord}
-                trend={result.trend}
-                icon={result.icon}
-                dark={false}
-                color="blue"
-              />
+                className="transform transition-all duration-500 hover:scale-105 hover:-translate-y-2 animate__animated animate__fadeInUp"
+                style={{ animationDelay: `${index * 200}ms` }}
+              >
+                <StatsCard
+                  percentage={result.percentage}
+                  title={result.title}
+                  description={result.description}
+                  highlightWord={result.highlightWord}
+                  trend={result.trend}
+                  icon={result.icon}
+                  dark={false}
+                  color="blue"
+                />
+              </div>
             ))}
           </div>
-          <div className="grid grid-cols-2 gap-5 max-w-2xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-2xl mx-auto">
             {statisticsData.slice(3).map((result, index) => (
-              <StatsCard
-                key={index}
-                percentage={result.percentage}
-                title={result.title}
-                description={result.description}
-                highlightWord={result.highlightWord}
-                trend={result.trend}
-                icon={result.icon}
-                dark={false}
-                color="blue"
-              />
+              <div
+                key={index + 3}
+                className="transform transition-all duration-500 hover:scale-105 hover:-translate-y-2 animate__animated animate__fadeInUp"
+                style={{ animationDelay: `${(index + 3) * 200}ms` }}
+              >
+                <StatsCard
+                  percentage={result.percentage}
+                  title={result.title}
+                  description={result.description}
+                  highlightWord={result.highlightWord}
+                  trend={result.trend}
+                  icon={result.icon}
+                  dark={false}
+                  color="blue"
+                />
+              </div>
             ))}
           </div>
         </div>
