@@ -18,6 +18,8 @@ export default function LandingPage({
   galleryImages,
   resultMacImages,
   descriptonFooter,
+  problemsSection,
+  solutionsSection,
   customClass = "",
 }) {
   return (
@@ -30,8 +32,8 @@ export default function LandingPage({
 
       {/* Problems Section */}
       <ContentSection
-        title="Problems faced"
-        subtitle="Urban Outfitters approached our digital marketing agency with the following challenges:"
+        title={problemsSection?.title}
+        subtitle={problemsSection?.subtitle}
         items={problemsData}
         dark={false}
         columns={2}
@@ -52,8 +54,8 @@ export default function LandingPage({
 
       {/* Solutions Section */}
       <ContentSection
-        title="Solutions found"
-        subtitle="To address these challenges, we implemented a comprehensive digital marketing strategy focusing on SEO, SEM, PPC, UI/UX, and Graphic Designing."
+        title={solutionsSection?.title}
+        subtitle={solutionsSection?.subtitle}
         items={solutionsData}
         dark={false}
         columns={1}
@@ -74,7 +76,7 @@ export default function LandingPage({
           <HeadingText title="Results achieved" subtitle="Our comprehensive approach led to significant improvements in the client’s online performance:" />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto mb-5">
             {resultsData.slice(0, 3).map((result, index) => (
-              <div 
+              <div
                 key={index}
                 className="transform transition-all duration-500 hover:scale-105 hover:-translate-y-2 animate__animated animate__fadeInUp"
                 style={{ animationDelay: `${index * 200}ms` }}
@@ -116,7 +118,7 @@ export default function LandingPage({
       </section>
 
       <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl flex justify-center items-center mx-auto px-4 sm:px-6 lg:px-8">
           <Image
             src="/images/MacBook-Pro-16-inch-Space-Black-Front.png"
             alt={resultMacImages?.alt || "MacBook-Pro-16-inch-Space-Black-Front"}
@@ -134,7 +136,7 @@ export default function LandingPage({
           <HeadingText title="Statistics" subtitle="Our comprehensive approach led to significant improvements in the client’s online performance:" />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto mb-5">
             {statisticsData.slice(0, 3).map((result, index) => (
-              <div 
+              <div
                 key={index}
                 className="transform transition-all duration-500 hover:scale-105 hover:-translate-y-2 animate__animated animate__fadeInUp"
                 style={{ animationDelay: `${index * 200}ms` }}
