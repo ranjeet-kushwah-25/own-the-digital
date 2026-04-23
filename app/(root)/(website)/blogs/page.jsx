@@ -13,7 +13,6 @@ export default function BlogPage() {
             <div className="">
                 <BlogList />
             </div>
-
             <Footer />
         </div>
     );

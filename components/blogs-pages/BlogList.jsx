@@ -101,7 +101,7 @@ export default function BlogList() {
   };
 
   return (
-    <section className="max-w-3xl mx-auto px-4 py-10 font-sans">
+    <section className="max-w-6xl mx-auto px-4 py-10 font-sans">
       {/* Title */}
       <h1 className="text-center text-3xl font-extrabold text-gray-900 mb-6 tracking-tight">
         Blogs
