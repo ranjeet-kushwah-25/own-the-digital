@@ -2,9 +2,14 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { Eye, EyeOff, Mail, Lock, User, ArrowRight, Check, ArrowUpRight } from 'lucide-react'
+import { useRouter } from 'next/navigation'
+import { useEffect } from 'react'
+import { Eye, EyeOff, Mail, Lock, User, Check, ArrowUpRight } from 'lucide-react'
+import { useAuthStore } from '@/store/auth.store'
 
 export default function RegisterPage() {
+  const router = useRouter()
+  const { register, isLoading, error, isAuthenticated, clearError } = useAuthStore()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -13,8 +18,21 @@ export default function RegisterPage() {
   })
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
   const [errors, setErrors] = useState({})
+
+  // Redirect if already authenticated
+  useEffect(() => {
+    if (isAuthenticated) {
+      router.push('/login')
+    }
+  }, [isAuthenticated, router])
+
+  // Clear error when user starts typing
+  useEffect(() => {
+    if (error) {
+      clearError()
+    }
+  }, [formData.name, formData.email, formData.password, error, clearError])
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -62,13 +80,15 @@ export default function RegisterPage() {
       return
     }
 
-    setIsLoading(true)
+    const result = await register({
+      name: formData.name,
+      email: formData.email,
+      password: formData.password
+    })
 
-    // Simulate API call
-    setTimeout(() => {
-      console.log('Registration attempt:', formData)
-      setIsLoading(false)
-    }, 2000)
+    if (result.success) {
+      router.push('/dashboard')
+    }
   }
 
   return (
@@ -91,6 +111,12 @@ export default function RegisterPage() {
           </h1>
           <p className="text-white italic text-lg">Join us and start your journey</p>
         </div>
+
+        {error && (
+          <div className="mb-4 p-3 bg-red-500/20 border border-red-500/50 rounded-lg">
+            <p className="text-red-300 text-sm text-center">{error}</p>
+          </div>
+        )}
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>

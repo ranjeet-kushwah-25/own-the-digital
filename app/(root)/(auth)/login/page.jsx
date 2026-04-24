@@ -2,23 +2,40 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { useEffect } from 'react'
 import { Eye, EyeOff, Mail, Lock, ArrowRight, ArrowUpRight } from 'lucide-react'
+import { useAuthStore } from '@/store/auth.store'
 
 export default function LoginPage() {
+  const router = useRouter()
+  const { login, isLoading, error, isAuthenticated, clearError } = useAuthStore()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
+
+  // Redirect if already authenticated
+  useEffect(() => {
+    if (isAuthenticated) {
+      router.push('/')
+    }
+  }, [isAuthenticated, router])
+
+  // Clear error when user starts typing
+  useEffect(() => {
+    if (error) {
+      clearError()
+    }
+  }, [email, password, error, clearError])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    setIsLoading(true)
-    
-    // Simulate API call
-    setTimeout(() => {
-      console.log('Login attempt:', { email, password })
-      setIsLoading(false)
-    }, 2000)
+
+    const result = await login({ email, password })
+
+    if (result.success) {
+      router.push('/landing-page')
+    }
   }
 
   return (
@@ -41,6 +58,12 @@ export default function LoginPage() {
           </h1>
           <p className="text-white italic text-lg">Sign in to your account to continue</p>
         </div>
+
+        {error && (
+          <div className="mb-4 p-3 bg-red-500/20 border border-red-500/50 rounded-lg">
+            <p className="text-red-300 text-sm text-center">{error}</p>
+          </div>
+        )}
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
