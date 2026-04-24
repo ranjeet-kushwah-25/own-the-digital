@@ -13,7 +13,7 @@ export async function POST(req) {
 
     const { accessToken, refreshToken } = res.data;
 
-    const response = NextResponse.json({ success: true });
+    const response = NextResponse.json({ success: true, msg: 'Login successful' });
 
     response.cookies.set("accessToken", accessToken, {
       httpOnly: true,
