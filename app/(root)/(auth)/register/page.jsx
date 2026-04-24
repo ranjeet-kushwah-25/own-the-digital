@@ -20,13 +20,6 @@ export default function RegisterPage() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
   const [errors, setErrors] = useState({})
 
-  // Redirect if already authenticated
-  useEffect(() => {
-    if (isAuthenticated) {
-      router.push('/login')
-    }
-  }, [isAuthenticated, router])
-
   // Clear error when user starts typing
   useEffect(() => {
     if (error) {
