@@ -1,11 +1,11 @@
 import React from "react";
-import LandingPage from "./(root)/(website)/landing-page/page";
+import LoginPage from "./(root)/(auth)/login/page";
 
 export default function Home() {
   return (
     <div>
       <main>
-        <LandingPage />
+        <LoginPage />
       </main>
     </div>
   );
