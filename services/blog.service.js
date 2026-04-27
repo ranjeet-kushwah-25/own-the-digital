@@ -1,6 +1,13 @@
-export const getBlogs = async () => {
+export const getBlogs = async (params = {}) => {
   try {
-    const res = await fetch("/api/blogs");
+    const { page = 1, limit = 10, category } = params;
+    const queryParams = new URLSearchParams({
+      page: page.toString(),
+      limit: limit.toString(),
+      ...(category && { category })
+    });
+
+    const res = await fetch(`/api/blogs?${queryParams}`);
     const result = await res.json();
     return result;
   } catch (error) {
