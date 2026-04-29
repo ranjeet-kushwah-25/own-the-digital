@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { loginUser, registerUser, logoutUser } from "@/services/auth.service";
+import { loginUser, registerUser, logoutUser, getProfile } from "@/services/auth.service";
 
 export const useAuthStore = create(
   persist(
@@ -14,10 +14,10 @@ export const useAuthStore = create(
         set({ isLoading: true, error: null });
         try {
           const result = await loginUser(credentials);
-
+          console.log("result of user login", result)
           if (result.success) {
             set({
-              user: result.user || null,
+              user: result.user,
               isAuthenticated: true,
               isLoading: false,
               error: null,
@@ -89,6 +89,39 @@ export const useAuthStore = create(
       clearError: () => set({ error: null }),
 
       setUser: (user) => set({ user, isAuthenticated: !!user }),
+
+      checkAuth: async () => {
+        set({ isLoading: true, error: null });
+        try {
+          const result = await getProfile();
+
+          if (result.success) {
+            set({
+              user: result.user || result.data,
+              isAuthenticated: true,
+              isLoading: false,
+              error: null,
+            });
+            return { success: true, user: result.user || result.data };
+          } else {
+            set({
+              user: null,
+              isAuthenticated: false,
+              isLoading: false,
+              error: result.message || "Authentication check failed",
+            });
+            return { success: false, error: result.message };
+          }
+        } catch (error) {
+          set({
+            user: null,
+            isAuthenticated: false,
+            isLoading: false,
+            error: "Failed to verify authentication",
+          });
+          return { success: false, error: "Failed to verify authentication" };
+        }
+      },
     }),
     {
       name: "auth-storage",

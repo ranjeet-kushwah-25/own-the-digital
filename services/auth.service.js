@@ -9,7 +9,12 @@ export const loginUser = async (data) => {
     });
 
     const result = await res.json();
-    return result;
+
+    return {
+      success: result.success,
+      user: result.user,
+      message: result.message,
+    };
   } catch (error) {
     return { success: false, message: "Login failed" };
   }

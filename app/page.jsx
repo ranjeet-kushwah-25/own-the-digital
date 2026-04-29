@@ -1,12 +1,6 @@
-import React from "react";
-import LoginPage from "./(root)/(auth)/login/page";
+import { redirect } from "next/navigation";
 
 export default function Home() {
-  return (
-    <div>
-      <main>
-        <LoginPage />
-      </main>
-    </div>
-  );
+  // Redirect to the main website (root page)
+  redirect("/landing-page");
 }

@@ -1,20 +1,47 @@
-import apiClient from "@/lib/api-client";
 import { useAuthStore } from "@/store/auth.store";
 
 export const useAuth = () => {
-  const { user, setUser } = useAuthStore();
+  const {
+    user,
+    isAuthenticated,
+    isLoading,
+    error,
+    login: storeLogin,
+    logout: storeLogout,
+    register: storeRegister,
+    clearError,
+    setUser,
+    checkAuth: storeCheckAuth
+  } = useAuthStore();
 
-  const login = async (data) => {
-    const res = await apiClient.post("/auth/login", data);
-    setUser(res.data.user);
+  const login = async (credentials) => {
+    return await storeLogin(credentials);
   };
 
   const logout = async () => {
-    await axios.post("/auth/logout");
-    setUser(null);
+    return await storeLogout();
   };
 
-  return { user, login, logout };
+  const register = async (userData) => {
+    return await storeRegister(userData);
+  };
+
+  const checkAuth = async () => {
+    return await storeCheckAuth();
+  };
+
+  return {
+    user,
+    isAuthenticated,
+    isLoading,
+    error,
+    login,
+    logout,
+    register,
+    checkAuth,
+    clearError,
+    setUser
+  };
 };
 
 

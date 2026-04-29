@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { useAuthStore } from "@/store/auth.store";
+import { useAuth } from "@/hooks/useAuth";
 import { getBlogs } from "@/services/blog.service";
 
 const categories = ["All", "Digital Marketing", "SEO", "Social Media Marketing", "Email Marketing"];
@@ -20,7 +20,7 @@ export const generateSlug = (title) => {
 };
 
 export default function BlogList() {
-  const { user } = useAuthStore();
+  const { user, isAuthenticated, isLoading: authLoading } = useAuth();
   const [activeCategory, setActiveCategory] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
   const [blogs, setBlogs] = useState([]);
@@ -28,11 +28,11 @@ export default function BlogList() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Check if user is admin (you can adjust this logic based on your user role structure)
-  const isAdmin = user && (user.role === 'admin' || user.email === 'admin@example.com');
+  // Check if user is admin
+  const isAdmin = user?.role === 'admin';
 
-  // Temporarily show button for testing (remove this line in production)
-  const showButtonForTesting = true; // Change to false to require admin login
+  // Show create button only for authenticated admins
+  const showCreateButton = isAuthenticated && isAdmin;
 
   // Fetch blogs from API with pagination
   useEffect(() => {
@@ -41,7 +41,7 @@ export default function BlogList() {
         setLoading(true);
         setError(null);
         const result = await getBlogs({ page: currentPage });
-        console.log("BLogsss>>>", result)
+
         if (result.success && result.data?.blogs) {
           setBlogs(result.data.blogs);
           setPagination(result.data.pagination);
@@ -107,9 +107,9 @@ export default function BlogList() {
           ))}
         </div>
 
-        {/* Create Blog Button - Admin Only or Testing */}
-        {(isAdmin || showButtonForTesting) && (
-          <Link href="/blogs/create">
+        {/* Create Blog Button - Admin Only */}
+        {showCreateButton && (
+          <Link href="/blog/create">
             <button className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />

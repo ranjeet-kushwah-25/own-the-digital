@@ -12,13 +12,13 @@ export default function Header() {
                 className="w-full mx-2 sm:mx-4 max-w-[996px] h-12 sm:h-14 px-4 sm:px-6 md:px-8 py-2 sm:py-3 flex items-center justify-between rounded-2xl bg-linear-to-r from-[#0008F0E5]/30 via-[#0008F000]/50 to-[#111115] backdrop-blur-sm shadow-lg" >
 
                 {/* Logo */}
-                <Link href='/'>
+                <Link href='/landing-page'>
                     <CustomIcon src="logo_ownthedigital.png" size={192} className="sm:size-150 md:size-180 lg:size-200" />
                 </Link>
 
                 {/* Desktop Navigation */}
                 <nav className="hidden lg:flex items-center gap-6 xl:gap-8 text-gray-300 text-sm xl:text-lg font-medium">
-                    {["About Us", "Services", "Portfolio", "Blogs", "Contact"].map(
+                    {["About Us", "Services", "Portfolio", "Blogs", "Contact", "Login"].map(
                         (item) => (
                             <Link
                                 key={item}
@@ -49,7 +49,7 @@ export default function Header() {
                 }`}>
                 <div className="bg-black/90 backdrop-blur-md rounded-2xl p-4 shadow-xl">
                     <nav className="flex flex-col space-y-3">
-                        {["About Us", "Services", "Portfolio", "Blogs", "Contact"].map(
+                        {["About Us", "Services", "Portfolio", "Blogs", "Contact", "Login"].map(
                             (item) => (
                                 <Link
                                     key={item}

@@ -11,19 +11,33 @@ export async function POST(req) {
       body
     );
 
-    const { accessToken, refreshToken } = res.data;
+    // ✅ Correct destructuring
+    const { user, token, refreshToken } = res.data.data;
 
-    const response = NextResponse.json({ success: true, msg: 'Login successful' });
-
-    response.cookies.set("accessToken", accessToken, {
-      httpOnly: true,
-      secure: true,
+    const response = NextResponse.json({
+      success: true,
+      message: "Login successful",
+      user, // ✅ correct
     });
 
-    response.cookies.set("refreshToken", refreshToken, {
-      httpOnly: true,
-      secure: true,
-    });
+    // ✅ Set cookies correctly
+    if (token) {
+      response.cookies.set("accessToken", token, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "lax",
+        path: "/",
+      });
+    }
+
+    if (refreshToken) {
+      response.cookies.set("refreshToken", refreshToken, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "lax",
+        path: "/",
+      });
+    }
 
     return response;
   } catch (error) {

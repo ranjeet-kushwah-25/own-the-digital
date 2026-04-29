@@ -11,19 +11,30 @@ export async function POST(req) {
       body
     );
 
-    const { accessToken, refreshToken } = res.data;
+    const { accessToken, refreshToken, user } = res.data;
 
-    const response = NextResponse.json({ success: true });
-
-    response.cookies.set("accessToken", accessToken, {
-      httpOnly: true,
-      secure: true,
+    const response = NextResponse.json({
+      success: true,
+      user: user || null
     });
 
-    response.cookies.set("refreshToken", refreshToken, {
-      httpOnly: true,
-      secure: true,
-    });
+    if (accessToken) {
+      response.cookies.set("accessToken", accessToken, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'lax',
+        path: '/'
+      });
+    }
+
+    if (refreshToken) {
+      response.cookies.set("refreshToken", refreshToken, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'lax',
+        path: '/'
+      });
+    }
 
     return response;
   } catch (error) {
