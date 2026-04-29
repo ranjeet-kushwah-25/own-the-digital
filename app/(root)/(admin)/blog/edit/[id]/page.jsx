@@ -165,9 +165,7 @@ Next.js 14 is a significant update that brings many improvements for developers.
     
     // Simulate API call
     setTimeout(() => {
-      console.log('Updating blog post:', dataToSave)
       setIsSaving(false)
-      
       // In a real app, you would update via API and then redirect
       alert(`Blog post ${status === 'published' ? 'published' : 'saved as draft'} successfully!`)
     }, 2000)

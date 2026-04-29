@@ -16,7 +16,6 @@ export async function POST(req) {
 
     // Check if backend URL is configured
     if (!process.env.BACKEND_URL || process.env.BACKEND_URL.includes('localhost')) {
-        console.log('Backend not configured or running in development - using mock response for contact');
 
         // Mock successful contact submission for testing
         const mockContact = {

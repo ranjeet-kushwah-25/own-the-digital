@@ -14,7 +14,6 @@ export const useAuthStore = create(
         set({ isLoading: true, error: null });
         try {
           const result = await loginUser(credentials);
-          console.log("result of user login", result)
           if (result.success) {
             set({
               user: result.user,

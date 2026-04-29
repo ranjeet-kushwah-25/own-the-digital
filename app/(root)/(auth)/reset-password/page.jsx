@@ -53,7 +53,6 @@ export default function ResetPasswordPage() {
     
     // Simulate API call
     setTimeout(() => {
-      console.log('Password reset with token:', token)
       setIsLoading(false)
       setIsSuccess(true)
     }, 2000)

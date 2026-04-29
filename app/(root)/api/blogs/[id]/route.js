@@ -5,11 +5,9 @@ import apiClient from "@/lib/api-client";
 export async function GET(req, { params }) {
     try {
         const { id } = await params;
-        console.log("backend api call>>>>>12.1..>>", id)
         const res = await apiClient.get(
             `${process.env.BACKEND_URL}/api/blogs/${id}`
         );
-        console.log("backend api call", id, res.data)
         return NextResponse.json(res.data);
     } catch (error) {
         return catchError(error, "Failed to get blog");
@@ -48,7 +46,6 @@ export async function POST(req, { params }) {
         const res = await apiClient.get(
             `${process.env.BACKEND_URL}/api/blogs/${id}`
         );
-        console.log("backend api call", id, res.data)
         return NextResponse.json(res.data);
     } catch (error) {
         return catchError(error, "Failed to get blog");

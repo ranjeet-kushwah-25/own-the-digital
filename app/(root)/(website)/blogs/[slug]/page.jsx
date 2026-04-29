@@ -21,7 +21,6 @@ export default function BlogDetails() {
         setLoading(true);
         // Extract blog ID from slug - you might need to adjust this based on your API
         const response = await getBlogById(params.slug);
-        console.log("response??>>", response)
         if (response.success) {
           setBlog(response.data.blog);
         } else {

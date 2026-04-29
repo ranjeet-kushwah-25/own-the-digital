@@ -245,7 +245,6 @@ export default function CreateBlogPage() {
       const result = await response.json()
 
       if (response.ok) {
-        console.log('Blog post saved successfully:', result)
         setIsSaving(false)
 
         // Redirect to blog listing or show success message

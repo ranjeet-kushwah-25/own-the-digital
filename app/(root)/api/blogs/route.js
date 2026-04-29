@@ -4,7 +4,6 @@ import { cookies } from "next/headers";
 
 export async function GET() {
   try {
-    console.log('Fetching blogs from backend:', `${process.env.BACKEND_URL}/api/blogs`);
     const res = await apiClient.get(`${process.env.BACKEND_URL}/api/blogs`);
     return NextResponse.json(res.data);
   } catch (error) {
@@ -30,8 +29,6 @@ export async function POST(req) {
       .find((row) => row.startsWith("accessToken="))
       ?.split("=")[1];
 
-    console.log("TOKEN:", token);
-
     if (!token) {
       return NextResponse.json(
         { success: false, message: "Access denied. No token provided." },
@@ -50,8 +47,6 @@ export async function POST(req) {
         },
       }
     );
-
-    console.log("PROFILE:", profileRes.data);
 
     const user = profileRes.data.data?.user;
 
@@ -72,8 +67,6 @@ export async function POST(req) {
         },
       }
     );
-
-    console.log("BLOG CREATED:", res.data);
 
     return NextResponse.json(res.data);
   } catch (error) {
