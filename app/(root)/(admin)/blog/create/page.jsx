@@ -252,7 +252,7 @@ export default function CreateBlogPage() {
         alert(`Blog post ${status === 'published' ? 'published' : 'saved as draft'} successfully!`)
 
         // Optionally redirect to blog listing
-        // window.location.href = '/admin/blog'
+        window.location.href = '/blogs'
       } else {
         throw new Error(result.message || 'Failed to save blog post')
       }
