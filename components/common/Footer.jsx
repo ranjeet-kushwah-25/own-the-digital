@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { CustomIcon } from "@/components/ui/Icon/CustomIcon";
 
 
@@ -27,12 +28,12 @@ export default function Footer() {
                   <div className="text-center sm:text-left">
                       <h3 className="text-[#5545FF] mb-4 text-lg font-semibold">Sitemap</h3>
                       <ul className="space-y-2 text-gray-300 text-sm sm:text-base">
-                          <li className="hover:text-white transition-colors cursor-pointer">Home</li>
-                          <li className="hover:text-white transition-colors cursor-pointer">About Us</li>
-                          <li className="hover:text-white transition-colors cursor-pointer">Services</li>
-                          <li className="hover:text-white transition-colors cursor-pointer">Portfolio</li>
-                          <li className="hover:text-white transition-colors cursor-pointer">Blogs</li>
-                          <li className="hover:text-white transition-colors cursor-pointer">Contact</li>
+                          <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
+                          <li><Link href="/about-us" className="hover:text-white transition-colors">About Us</Link></li>
+                          <li><Link href="/services" className="hover:text-white transition-colors">Services</Link></li>
+                          <li><Link href="/portfolio" className="hover:text-white transition-colors">Portfolio</Link></li>
+                          <li><Link href="/blogs" className="hover:text-white transition-colors">Blogs</Link></li>
+                          <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
                       </ul>
                   </div>
 
@@ -49,7 +50,7 @@ export default function Footer() {
 
                       <p className="mt-4 text-sm">
                           <span className="text-[#5545FF]">Contact On</span><br />
-                          +91 99930 67849
+                          +91 1234567890
                       </p>
                   </div>
 
