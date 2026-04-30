@@ -38,7 +38,11 @@ export default function LetTalkForm() {
     }
 
     try {
-      const result = await createContact(formData);
+      const result = await createContact({
+        name: formData.name,
+        email: formData.email,
+        message: formData.project,
+      });
 
       if (result.success) {
         setSubmitStatus('success');
