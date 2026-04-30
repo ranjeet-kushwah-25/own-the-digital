@@ -15,8 +15,9 @@ export async function POST(req) {
   const body = await req.json();
 
     try {
+        console.log("contact api reacht at next js ")
         const res = await apiClient.post(
-            `${process.env.BACKEND_URL}/api/contact`,
+            `/api/contact`,
             body
         );
         return NextResponse.json(res.data);
