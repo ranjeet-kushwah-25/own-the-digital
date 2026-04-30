@@ -37,6 +37,14 @@ export default function LetTalkForm() {
       return;
     }
 
+    // Message validation
+    if (formData.project.length < 10 || formData.project.length > 2000) {
+      setSubmitStatus('error');
+      setSubmitMessage('Message must be between 10 and 2000 characters');
+      setIsLoading(false);
+      return;
+    }
+
     try {
       const result = await createContact({
         name: formData.name,
