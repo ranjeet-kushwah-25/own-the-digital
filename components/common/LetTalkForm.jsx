@@ -13,6 +13,11 @@ export default function LetTalkForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
   const [submitMessage, setSubmitMessage] = useState("");
+  const [fieldErrors, setFieldErrors] = useState({
+    name: "",
+    email: "",
+    project: "",
+  });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,6 +29,15 @@ export default function LetTalkForm() {
     if (!formData.name.trim() || !formData.email.trim() || !formData.project.trim()) {
       setSubmitStatus('error');
       setSubmitMessage('Please fill in all fields');
+      setIsLoading(false);
+      return;
+    }
+
+    // Name validation - only letters and spaces allowed
+    const nameRegex = /^[a-zA-Z\s]+$/;
+    if (!nameRegex.test(formData.name)) {
+      setSubmitStatus('error');
+      setSubmitMessage('Name can only contain letters and spaces');
       setIsLoading(false);
       return;
     }
@@ -74,10 +88,28 @@ export default function LetTalkForm() {
   };
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
+
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
+
+    // Real-time validation
+    if (name === 'name') {
+      const nameRegex = /^[a-zA-Z\s]*$/;
+      if (value && !nameRegex.test(value)) {
+        setFieldErrors({
+          ...fieldErrors,
+          name: 'Name can only contain letters and spaces',
+        });
+      } else {
+        setFieldErrors({
+          ...fieldErrors,
+          name: '',
+        });
+      }
+    }
   };
 
   return (
@@ -107,9 +139,13 @@ export default function LetTalkForm() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-5 py-3 rounded-xl bg-[#FFFFFF] text-black outline-none transform transition-all duration-300 focus:scale-105 focus:shadow-lg focus:shadow-purple-500/50 focus:bg-gray-50"
+                  className={`w-full px-5 py-3 rounded-xl bg-[#FFFFFF] text-black outline-none transform transition-all duration-300 focus:scale-105 focus:shadow-lg focus:shadow-purple-500/50 focus:bg-gray-50 ${fieldErrors.name ? 'border-2 border-red-500' : ''
+                    }`}
                   placeholder="Enter your name"
                 />
+                {fieldErrors.name && (
+                  <p className="text-red-400 text-sm mt-1">{fieldErrors.name}</p>
+                )}
               </div>
 
               {/* EMAIL */}
